@@ -14,5 +14,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button button;
         Button jinok;
+        Button chungWun;
     }
 }
