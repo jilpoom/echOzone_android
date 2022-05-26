@@ -5,12 +5,19 @@ pluginManagement {
         mavenCentral()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        // add this
+        jcenter()
+        maven {
+            url 'https://naver.jfrog.io/artifactory/maven/'
+        }
     }
 }
+
 rootProject.name = "echozone_project1"
 include ':app'
