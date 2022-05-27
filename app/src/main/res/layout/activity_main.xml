@@ -133,6 +133,6 @@
         android:elevation="10dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="340dp"></LinearLayout>
+        tools:layout_editor_absoluteY="340dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
