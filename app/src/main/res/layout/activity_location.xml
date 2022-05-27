@@ -38,6 +38,7 @@
         android:background="@drawable/edt_round"
         android:ems="10"
         android:inputType="textPostalAddress"
+        android:paddingLeft="40dp"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintHorizontal_bias="0.007"
         app:layout_constraintStart_toStartOf="@+id/textView"
