@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".join">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="301dp"
+        android:layout_height="530dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/layout_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Sign up"
+            android:textColor="@color/blue"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="210dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_round"
+            android:elevation="20dp"
+            android:text="sign up"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName4"
+            android:layout_width="210dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/layout_border"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName6"
+            android:layout_width="210dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/layout_border"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName5"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName7"
+            android:layout_width="210dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/layout_border"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
+            android:layout_width="210dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/layout_border"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName5"
+            android:layout_width="210dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/layout_border"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="26dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="95dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="ID"
+            android:textAlignment="gravity"
+            android:textColor="@color/blue"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="PASSWORD"
+            android:textAlignment="gravity"
+            android:textColor="@color/blue"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="USER NAME"
+            android:textAlignment="gravity"
+            android:textColor="@color/blue"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="45dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="PHONE"
+            android:textAlignment="gravity"
+            android:textColor="@color/blue"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="55dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="ADDRESS"
+            android:textAlignment="gravity"
+            android:textColor="@color/blue"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName7"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="96dp"
+            tools:layout_editor_absoluteY="392dp">
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="210dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/layout_border"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName7"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName7"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/blue"
+                    android:scaleX="0.70"
+                    android:scaleY="0.70"
+                    android:text="개인" />
+
+                <RadioButton
+                    android:id="@+id/radioButton16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/blue"
+                    android:scaleX="0.70"
+                    android:scaleY="0.70"
+                    android:text="가맹" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="35dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="TYPE"
+            android:textAlignment="gravity"
+            android:textColor="@color/blue"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

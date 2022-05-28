@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.echozone_project1">
+    package="com.example.echozone_project1" >
 
     <application
         android:allowBackup="true"
@@ -9,9 +9,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Echozone_project1">
+        android:theme="@style/Theme.Echozone_project1" >
         <activity
-            android:name=".MainActivity2"
+            android:name=".join"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,13 +20,19 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".login"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".MainActivity2"
+            android:exported="true" >
+        </activity>
+        <activity
             android:name=".CreateQR"
             android:exported="false" />
         <activity
             android:name=".location"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".bottombar"
             android:exported="true" />
