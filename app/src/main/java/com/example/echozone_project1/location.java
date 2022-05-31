@@ -1,23 +1,31 @@
 package com.example.echozone_project1;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 
 import android.Manifest;
-import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
-import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapFragment;
 import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
-import com.naver.maps.map.overlay.Marker;
 import com.naver.maps.map.util.FusedLocationSource;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.List;
 
 
 public class location extends AppCompatActivity implements OnMapReadyCallback{
@@ -32,6 +40,8 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
 
     private FusedLocationSource mLocationSource;
     private NaverMap mNaverMap;
+
+    private TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,34 +62,54 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
 
         // 위치를 반환하는 구현체인 FusedLocationSource 생성
         mLocationSource = new FusedLocationSource(this, PERMISSION_REQUEST_CODE);
+
+        result = findViewById(R.id.result);
+
+        final Geocoder geocoder = new Geocoder(this);
+
+        String str = "광주 동구 예술길 31-16";
+        try {
+            List<Address> list = geocoder.getFromLocationName(str, 10);
+            String city = "";
+            String country = "";
+            if (list.size() == 0){
+                result.setText("올바른 주소를 입력해주세요.");
+            } else {
+                Address address = list.get(0);
+                double lat = address.getLatitude();
+                double lon = address.getLongitude();
+                result.setText("X : " + lat + "Y : " + lon);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (mLocationSource.onRequestPermissionsResult(requestCode, permissions, grantResults)){
+            return;
+        }
     }
 
+    @UiThread
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
         Log.d(TAG, "onMapReady");
 
-        // 지도 상에 마커 표시
-        Marker marker = new Marker();
-        marker.setPosition(new LatLng(37.5670135, 126.9783740));
-        marker.setMap(naverMap);
-
         // NaverMap 객체 받아서 NaverMap 객체에 위치 소스 지정
         mNaverMap = naverMap;
         mNaverMap.setLocationSource(mLocationSource);
+        mNaverMap.setLocationTrackingMode(LocationTrackingMode.Follow);
+
+        // 지도 상에 마커 표시
+        // Marker marker = new Marker();
+        // marker.setPosition(mNaverMap);
+        // marker.setMap(naverMap);
 
         // 권한확인. 결과는 onRequestPermissionResult 콜백 메서드 호출
         ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_REQUEST_CODE);
-    }
-
-    public void onRequestPermissionResult(int requestCode, @NonNull String[] permissions,
-                                          @NonNull int[] grantResults){
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        // request code와 권한획득 여부 확인
-        if (requestCode == PERMISSION_REQUEST_CODE){
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                mNaverMap.setLocationTrackingMode(LocationTrackingMode.Follow);
-            }
-        }
     }
 }
