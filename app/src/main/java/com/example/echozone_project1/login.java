@@ -21,7 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -87,7 +86,7 @@ public class login extends AppCompatActivity {
                         // 로그인 성공 시 id, pw, user_seq, type, phone, address, name, joinDate 데이터를
                         // MainActivity로 전달해서 정보 노출시키기
                         // MemberVO 사용
-                        LoginCheck.info = new MemberVO(id, pw, type, phone, address,
+                        LoginCheck.info = new userVO(id, pw, type, phone, address,
                                                         name, joinDate);
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);

@@ -1,6 +1,6 @@
 package com.example.echozone_project1;
 
-public class addressVO {
+public class shopVO {
 
     private String shop_id;
     private String shop_pw;
@@ -10,7 +10,7 @@ public class addressVO {
     private String shop_nm;
     private String shop_address;
 
-    public addressVO(){
+    public shopVO(){
 
     }
 
@@ -27,7 +27,7 @@ public class addressVO {
                 '}';
     }
 
-    public addressVO(String shop_id, String shop_pw, String com_resid, int product_seq, String inst_dt, String shop_nm, String shop_address) {
+    public shopVO(String shop_id, String shop_pw, String com_resid, int product_seq, String inst_dt, String shop_nm, String shop_address) {
         this.shop_id = shop_id;
         this.shop_pw = shop_pw;
         this.com_resid = com_resid;

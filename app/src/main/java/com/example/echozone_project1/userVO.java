@@ -1,6 +1,6 @@
 package com.example.echozone_project1;
 
-public class MemberVO {
+public class userVO {
 
     private String id;
     private String pw;
@@ -10,11 +10,11 @@ public class MemberVO {
     private String name;
     private String joinDate;
 
-    public MemberVO(){
+    public userVO(){
 
     }
 
-    public MemberVO(String id, String pw, String type, String phone, String address, String name, String joinDate) {
+    public userVO(String id, String pw, String type, String phone, String address, String name, String joinDate) {
         this.id = id;
         this.pw = pw;
         this.type = type;
