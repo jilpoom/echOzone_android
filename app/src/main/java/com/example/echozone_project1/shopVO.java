@@ -1,17 +1,16 @@
 package com.example.echozone_project1;
 
-public class addressVO {
+public class shopVO {
 
     private String shop_id;
     private String shop_pw;
-    private int shop_seq;
     private String com_resid;
     private int product_seq;
     private String inst_dt;
     private String shop_nm;
     private String shop_address;
 
-    public addressVO(){
+    public shopVO(){
 
     }
 
@@ -20,7 +19,6 @@ public class addressVO {
         return "addressVO{" +
                 "shop_id='" + shop_id + '\'' +
                 ", shop_pw='" + shop_pw + '\'' +
-                ", shop_seq=" + shop_seq +
                 ", com_resid='" + com_resid + '\'' +
                 ", product_seq=" + product_seq +
                 ", inst_dt='" + inst_dt + '\'' +
@@ -29,10 +27,9 @@ public class addressVO {
                 '}';
     }
 
-    public addressVO(String shop_id, String shop_pw, int shop_seq, String com_resid, int product_seq, String inst_dt, String shop_nm, String shop_address) {
+    public shopVO(String shop_id, String shop_pw, String com_resid, int product_seq, String inst_dt, String shop_nm, String shop_address) {
         this.shop_id = shop_id;
         this.shop_pw = shop_pw;
-        this.shop_seq = shop_seq;
         this.com_resid = com_resid;
         this.product_seq = product_seq;
         this.inst_dt = inst_dt;
@@ -46,10 +43,6 @@ public class addressVO {
 
     public String getShop_pw() {
         return shop_pw;
-    }
-
-    public int getShop_seq() {
-        return shop_seq;
     }
 
     public String getCom_resid() {
@@ -78,10 +71,6 @@ public class addressVO {
 
     public void setShop_pw(String shop_pw) {
         this.shop_pw = shop_pw;
-    }
-
-    public void setShop_seq(int shop_seq) {
-        this.shop_seq = shop_seq;
     }
 
     public void setCom_resid(String com_resid) {

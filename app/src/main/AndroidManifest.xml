@@ -17,6 +17,11 @@
         <activity
             android:name=".join"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".login"
@@ -32,11 +37,6 @@
         <activity
             android:name=".location"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".bottombar"
@@ -49,5 +49,4 @@
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="r6lqo8nkaa" />
     </application>
-
 </manifest>
