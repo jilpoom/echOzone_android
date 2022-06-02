@@ -77,7 +77,7 @@ public class join extends AppCompatActivity {
         stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (response.equals("1")) {
+                if (response.length() > 0) {
                     Intent intent = new Intent(getApplicationContext(), login.class);
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(), "회원가입에 성공했습니다.", Toast.LENGTH_SHORT).show();
@@ -92,16 +92,17 @@ public class join extends AppCompatActivity {
             }
         }) {
             // 포스트 파라미터
-            @Nullable
             @Override
-            protected Map getParams() {
-                Map params = new HashMap();
+            protected Map<String, String> getParams() throws AuthFailureError{
+                Map<String, String> params = new HashMap<>();
                 params.put("user_id", join_id.getText().toString().trim());
                 params.put("user_pw", join_pw.getText().toString().trim());
-                params.put("user_nm", join_name.getText().toString().trim());
+                params.put("user_type", type_result.getText().toString().trim());
                 params.put("user_phone", join_phone.getText().toString().trim());
                 params.put("user_address", join_address.getText().toString().trim());
-                params.put("user_type", type_result.getText().toString().trim());
+                params.put("user_nm", join_name.getText().toString().trim());
+
+                Log.v("test", params.toString());
 
                 return params;
             }
