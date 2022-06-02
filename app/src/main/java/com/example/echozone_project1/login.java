@@ -25,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class login extends AppCompatActivity {
 
     private EditText user_id;
     private EditText user_pw;
-    private Button bnt_login;
+    private Button btn_login;
     private CheckBox ck_saveId;
     private CheckBox ck_autoLogin;
     private RequestQueue requestQueue;
@@ -45,11 +46,11 @@ public class login extends AppCompatActivity {
 
         user_id = findViewById(R.id.user_id);
         user_pw = findViewById(R.id.user_pw);
-        bnt_login = findViewById(R.id.btn_login);
+        btn_login = findViewById(R.id.btn_login);
         ck_saveId = findViewById(R.id.ck_saveId);
         ck_autoLogin = findViewById(R.id.ck_autoLogin);
 
-        bnt_login.setOnClickListener(new View.OnClickListener() {
+        btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendRequest();
@@ -62,32 +63,32 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
         // 서버에 요청할 주소
-        String url = "http://220.80.203.109:8081/web/loginSelect.do";
+        String url = "http://220.80.203.109:8081/web/andLoginSelect.do";
 
         // 요청 시 필요한 문자열 객체
         stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.v("resultValue", response);
                 if (response.length() > 0) {
+                    Log.v("checkcheck", "메롱");
                     // 로그인 성공
                     try {
                         JSONObject jsonObject = new JSONObject(response);
-                        String id = jsonObject.getString("user_id");
-                        String pw = jsonObject.getString("user_pw");
-                        int user_seq = jsonObject.getInt("user_seq");
-                        String type = jsonObject.getString("user_type");
-                        String phone = jsonObject.getString("user_phone");
-                        String address = jsonObject.getString("user_address");
-                        String name = jsonObject.getString("user_nm");
-                        String joinDate = jsonObject.getString("user_joindate");
-                        Log.v("resultValue", id + "/" + pw + "/");
+                        String user_id = jsonObject.getString("user_id");
+                        String user_pw = jsonObject.getString("user_pw");
+                        String user_type = jsonObject.getString("user_type");
+                        String user_phone = jsonObject.getString("user_phone");
+                        String user_address = jsonObject.getString("user_address");
+                        String user_nm = jsonObject.getString("user_nm");
+                        String user_joindate = jsonObject.getString("user_joindate");
+                        Log.v("userInfo", response.toString());
 
                         // 로그인 성공 시 id, pw, user_seq, type, phone, address, name, joinDate 데이터를
                         // MainActivity로 전달해서 정보 노출시키기
                         // MemberVO 사용
-                        LoginCheck.info = new userVO(id, pw, type, phone, address,
-                                                        name, joinDate);
+                        LoginCheck.info = new userVO(user_id, user_pw, user_type, user_phone, user_address,
+                                                        user_nm, user_joindate);
+                        Toast.makeText(getApplicationContext(), user_nm + "님 환영합니다.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
 
@@ -111,7 +112,10 @@ public class login extends AppCompatActivity {
                 try {
                     String utf8String = new String(response.data, "UTF-8");
                     return Response.success(utf8String, HttpHeaderParser.parseCacheHeaders(response));
-                } catch (Exception e) {
+                } catch (UnsupportedEncodingException e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                } catch (Exception e){
                     // log error
                     return Response.error(new ParseError(e));
                 }
@@ -122,11 +126,11 @@ public class login extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 // 서버에 보낼 값
                 Map<String, String> params = new HashMap<>();
-                String id = user_id.getText().toString();
-                String pw = user_pw.getText().toString();
+                String id = user_id.getText().toString().trim();
+                String pw = user_pw.getText().toString().trim();
 
-                params.put("id", id);
-                params.put("pw", pw);
+                params.put("user_id", id);
+                params.put("user_pw", pw);
 
                 return params;
             }
