@@ -49,4 +49,11 @@ dependencies {
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0' //qr코드
     // volley
     implementation 'com.android.volley:volley:1.2.1'
+    // GSON
+    implementation 'com.google.code.gson:gson:2.8.6'
+    // Jackson
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.12.4'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.4'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.4'
+
 }

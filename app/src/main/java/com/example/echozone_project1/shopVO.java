@@ -4,7 +4,6 @@ public class shopVO {
 
     private String shop_id;
     private String shop_pw;
-    private String com_resid;
     private int product_seq;
     private String inst_dt;
     private String shop_nm;
@@ -19,7 +18,6 @@ public class shopVO {
         return "addressVO{" +
                 "shop_id='" + shop_id + '\'' +
                 ", shop_pw='" + shop_pw + '\'' +
-                ", com_resid='" + com_resid + '\'' +
                 ", product_seq=" + product_seq +
                 ", inst_dt='" + inst_dt + '\'' +
                 ", shop_nm='" + shop_nm + '\'' +
@@ -27,10 +25,9 @@ public class shopVO {
                 '}';
     }
 
-    public shopVO(String shop_id, String shop_pw, String com_resid, int product_seq, String inst_dt, String shop_nm, String shop_address) {
+    public shopVO(String shop_id, String shop_pw, int product_seq, String inst_dt, String shop_nm, String shop_address) {
         this.shop_id = shop_id;
         this.shop_pw = shop_pw;
-        this.com_resid = com_resid;
         this.product_seq = product_seq;
         this.inst_dt = inst_dt;
         this.shop_nm = shop_nm;
@@ -43,10 +40,6 @@ public class shopVO {
 
     public String getShop_pw() {
         return shop_pw;
-    }
-
-    public String getCom_resid() {
-        return com_resid;
     }
 
     public int getProduct_seq() {
@@ -71,10 +64,6 @@ public class shopVO {
 
     public void setShop_pw(String shop_pw) {
         this.shop_pw = shop_pw;
-    }
-
-    public void setCom_resid(String com_resid) {
-        this.com_resid = com_resid;
     }
 
     public void setProduct_seq(int product_seq) {
