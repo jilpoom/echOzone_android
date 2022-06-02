@@ -75,6 +75,7 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     private String str;
+    private String strSearch;
 
     private ImageView btn_search;
     private EditText edt_search;
@@ -144,7 +145,7 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                str = edt_search.getText().toString();
+                strSearch = edt_search.getText().toString();
             }
         });
 
