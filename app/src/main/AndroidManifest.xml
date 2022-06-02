@@ -16,11 +16,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Echozone_project1">
         <activity
+            android:name=".dater_reservation"
+            android:exported="false" />
+        <activity
+            android:name=".cashhistory"
+            android:exported="false" />
+        <activity
             android:name=".info_cap"
             android:exported="false" />
         <activity
             android:name=".join"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".login"
             android:exported="true">
@@ -32,13 +38,13 @@
         </activity>
         <activity
             android:name=".MainActivity2"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".CreateQR"
             android:exported="false" />
         <activity
             android:name=".location"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".bottombar"
             android:exported="true" />
