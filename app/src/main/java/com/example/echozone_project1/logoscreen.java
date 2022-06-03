@@ -25,9 +25,9 @@ public class logoscreen extends AppCompatActivity {
                 finish();
             }
         },4500);
-        ImageView water = (ImageView) findViewById(R.id.waterscreen);
+        ImageView water = (ImageView) findViewById(R.id.water);
         GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(water);
-        Glide.with(this).load(R.drawable.waterlogo).into(gifImage);
+        Glide.with(this).load(R.drawable.screen).into(gifImage);
 // GIF 시작화면 실행
 }
     }
