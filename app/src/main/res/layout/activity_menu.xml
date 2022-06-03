@@ -2,85 +2,240 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#3473C2"
     android:elevation="30dp"
     tools:context=".menu">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout6"
-        android:layout_width="147dp"
-        android:layout_height="152dp"
-        android:layout_marginStart="30dp"
-        android:background="@drawable/layout_border"
-        android:elevation="10dp"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout4"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout4">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout5"
-        android:layout_width="147dp"
-        android:layout_height="152dp"
-        android:layout_marginStart="30dp"
-        android:background="@drawable/layout_border"
-        android:elevation="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout3"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout3"
-        app:layout_constraintVertical_bias="1.0">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="147dp"
-        android:layout_height="152dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="160dp"
-        android:background="@drawable/layout_border"
-        android:elevation="10dp"
+        android:layout_width="411dp"
+        android:layout_height="455dp"
+        android:layout_marginTop="204dp"
+        android:background="@drawable/layout_half_round"
+        android:elevation="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="28dp"
+            android:text="Menu"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="129dp"
+            android:layout_height="118dp"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/layout_round2"
+            android:elevation="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout4"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout4"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout4"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/imageView18"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_info_24" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="마이 페이지"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView18"
+                app:layout_constraintStart_toStartOf="@+id/imageView18"
+                app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="my page"
+                android:textColor="#A8A8A8"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView21"
+                app:layout_constraintStart_toStartOf="@+id/textView21"
+                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="129dp"
+            android:layout_height="118dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="84dp"
+            android:background="@drawable/layout_round2"
+            android:elevation="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView23"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_favorite_24" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="즐겨찾기"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView23"
+                app:layout_constraintStart_toStartOf="@+id/imageView23"
+                app:layout_constraintTop_toBottomOf="@+id/imageView23" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="favorite"
+                android:textColor="#A8A8A8"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView28"
+                app:layout_constraintStart_toStartOf="@+id/textView28"
+                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="129dp"
+            android:layout_height="118dp"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/layout_round2"
+            android:elevation="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout3"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/imageView24"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_history_24" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="적립내역"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView24"
+                app:layout_constraintStart_toStartOf="@+id/imageView24"
+                app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="history"
+                android:textColor="#A8A8A8"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView30"
+                app:layout_constraintStart_toStartOf="@+id/textView30"
+                app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="129dp"
+            android:layout_height="118dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/layout_round2"
+            android:elevation="8dp"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+            <ImageView
+                android:id="@+id/imageView25"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_location_on_24" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="위치찾기"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView25"
+                app:layout_constraintStart_toStartOf="@+id/imageView25"
+                app:layout_constraintTop_toBottomOf="@+id/imageView25" />
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="favorite"
+                android:textColor="#A8A8A8"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView32"
+                app:layout_constraintStart_toStartOf="@+id/textView32"
+                app:layout_constraintTop_toBottomOf="@+id/textView32" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="333dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="376dp"
+            android:background="@drawable/button_gradient"
+            android:text="log out"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout5"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout4"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
-        android:layout_width="147dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/layout_border"
-        android:elevation="10dp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/button12"
-        android:layout_width="333dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button_round"
-        android:text="Log out"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/constraintLayout6"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
 
     <ImageView
-        android:id="@+id/imageView21"
-        android:layout_width="76dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="56dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/btn_qr"
+        android:layout_width="99dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+        app:srcCompat="@drawable/qrcode" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
