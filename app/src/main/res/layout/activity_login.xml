@@ -68,6 +68,7 @@
             android:background="@drawable/button_round"
             android:elevation="10dp"
             android:text="Log in"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/user_pw"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/user_pw"

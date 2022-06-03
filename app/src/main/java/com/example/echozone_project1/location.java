@@ -75,13 +75,14 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     private String str;
-    private String strSearch;
+    private TextView tv_test;
 
     private ImageView btn_search;
     private EditText edt_search;
 
     private List<shopVO> placeList = new ArrayList<shopVO>();
 
+    /*     서버 연결 부분 시작     */
     public void sendRequest() {
         // RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -133,6 +134,7 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
         };
         requestQueue.add(stringRequest);
     }
+    /*      서버 연결 부분 끝      */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,16 +143,10 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
 
         edt_search = findViewById(R.id.edt_search);
         btn_search = findViewById(R.id.btn_search);
+        tv_test = findViewById(R.id.tv_test);
 
-        btn_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                strSearch = edt_search.getText().toString();
-            }
-        });
-
+        // 서버 연결
         sendRequest();
-
 
         // 지도 객체 생성
         FragmentManager fm = getSupportFragmentManager();
@@ -169,9 +165,21 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
 
         result = findViewById(R.id.result);
 
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                str = edt_search.getText().toString();
+                tv_test.setText(str);
+
+            }
+        });
+        // str = "광주 동구 예술길 31-16";
+            str = "광주 동구 예술길 31-16";
+
+
         final Geocoder geocoder = new Geocoder(this);
 
-        str = "광주 동구 예술길 31-16";
+        /*      위 , 경도 테스트 시작       */
         try {
             List<Address> list = geocoder.getFromLocationName(str, 10);
             String city = "";
@@ -182,13 +190,15 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
                 Address address = list.get(0);
                 double lat = address.getLatitude();
                 double lon = address.getLongitude();
-                result.setText("X : " + lat + "Y : " + lon);
+                result.setText(str + " : " + "X : " + lat + "Y : " + lon);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        /*       위, 경도 테스트 끝        */
 
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -237,4 +247,5 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
         // 권한확인. 결과는 onRequestPermissionResult 콜백 메서드 호출
         ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_REQUEST_CODE);
     }
+
 }
