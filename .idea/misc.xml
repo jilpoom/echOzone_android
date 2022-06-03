@@ -14,6 +14,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/drawable/ic_location.xml" value="0.154" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/drawable/layout_border.xml" value="0.1615" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/drawable/layout_border_white.xml" value="0.2295" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/drawable/layout_gradient.xml" value="0.17" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/drawable/layout_half_round.xml" value="0.2295" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/drawable/layout_round.xml" value="0.154" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/drawable/layout_round2.xml" value="0.154" />
@@ -26,7 +27,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/layout/activity_main2.xml" value="0.34479166666666666" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/layout/activity_menu.xml" value="0.67" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/layout/activity_menu.xml" value="0.25" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/echozone_project1/app/src/main/res/xml/network_security_config.xml" value="0.12222222222222222" />
       </map>
     </option>

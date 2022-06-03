@@ -5,6 +5,7 @@ import androidx.annotation.UiThread;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.content.Intent;
@@ -148,9 +149,38 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
         // 서버 연결
         sendRequest();
 
-        // 지도 객체 생성
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+
+                Bundle bundle = new Bundle();
+
+                // 1. 입력 메시지
+                String strSearch = edt_search.getText().toString();
+
+                // 2. 데이터 담기
+                bundle.putString("strSearch", strSearch);
+
+                // 3. 프래그먼트 선언
+                MapFragment mapFragment = new MapFragment();
+
+                // 4. 프래그먼트에 데이터 넘기기
+                assert mapFragment != null;
+                mapFragment.setArguments(bundle);
+
+                // 5. 프래그먼트 화면 보여주기
+                transaction.replace(R.id.map, mapFragment).commit();
+            }
+        });
+
+        // 프래그먼트 준비
         FragmentManager fm = getSupportFragmentManager();
+
+        // 지도 객체(프래그먼트) 생성(선언)
         MapFragment mapFragment = (MapFragment) fm.findFragmentById(R.id.map);
+
         if(mapFragment == null){
             mapFragment = MapFragment.newInstance();
             fm.beginTransaction().add(R.id.map, mapFragment).commit();
