@@ -34,6 +34,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.naver.maps.geometry.LatLng;
+import com.naver.maps.map.CameraUpdate;
+import com.naver.maps.map.LocationSource;
 import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapFragment;
 import com.naver.maps.map.NaverMap;
@@ -80,6 +82,8 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
 
     private ImageView btn_search;
     private EditText edt_search;
+
+    Bundle bundle = new Bundle();
 
     private List<shopVO> placeList = new ArrayList<shopVO>();
 
@@ -145,35 +149,11 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
         edt_search = findViewById(R.id.edt_search);
         btn_search = findViewById(R.id.btn_search);
         tv_test = findViewById(R.id.tv_test);
+        result = findViewById(R.id.result);
 
+        Geocoder geocoder = new Geocoder(this);
         // 서버 연결
         sendRequest();
-
-        btn_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager fm = getSupportFragmentManager();
-                FragmentTransaction transaction = fm.beginTransaction();
-
-                Bundle bundle = new Bundle();
-
-                // 1. 입력 메시지
-                String strSearch = edt_search.getText().toString();
-
-                // 2. 데이터 담기
-                bundle.putString("strSearch", strSearch);
-
-                // 3. 프래그먼트 선언
-                MapFragment mapFragment = new MapFragment();
-
-                // 4. 프래그먼트에 데이터 넘기기
-                assert mapFragment != null;
-                mapFragment.setArguments(bundle);
-
-                // 5. 프래그먼트 화면 보여주기
-                transaction.replace(R.id.map, mapFragment).commit();
-            }
-        });
 
         // 프래그먼트 준비
         FragmentManager fm = getSupportFragmentManager();
@@ -193,39 +173,46 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
         // 위치를 반환하는 구현체인 FusedLocationSource 생성
         mLocationSource = new FusedLocationSource(this, PERMISSION_REQUEST_CODE);
 
-        result = findViewById(R.id.result);
+        // str = "광주 동구 예술길 31-16";
 
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                str = edt_search.getText().toString();
-                tv_test.setText(str);
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+
+                // 1. 입력 메시지
+                String strSearch = edt_search.getText().toString();
+
+                // 2. 데이터 담기
+                bundle.putString("strSearch", strSearch);
+
+                // 3. 프래그먼트 선언
+                MapFragment mapFragment = new MapFragment();
+
+                // 4. 프래그먼트에 데이터 넘기기
+                assert mapFragment != null;
+                mapFragment.setArguments(bundle);
+
+                // 5. 프래그먼트 화면 보여주기
+                try {
+                    List<Address> list = geocoder.getFromLocationName(strSearch, 10);
+                    if (list.size() == 0){
+                        result.setText("올바른 주소를 입력해주세요.");
+                    } else {
+                        Address address = list.get(0);
+                        double lat = address.getLatitude();
+                        double lon = address.getLongitude();
+
+                        transaction.replace(R.id.map, mapFragment).commit();
+                        CameraUpdate cameraUpdate = CameraUpdate.scrollTo(new LatLng(lat,lon));
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             }
         });
-        // str = "광주 동구 예술길 31-16";
-            str = "광주 동구 예술길 31-16";
-
-
-        final Geocoder geocoder = new Geocoder(this);
-
-        /*      위 , 경도 테스트 시작       */
-        try {
-            List<Address> list = geocoder.getFromLocationName(str, 10);
-            String city = "";
-            String country = "";
-            if (list.size() == 0){
-                result.setText("올바른 주소를 입력해주세요.");
-            } else {
-                Address address = list.get(0);
-                double lat = address.getLatitude();
-                double lon = address.getLongitude();
-                result.setText(str + " : " + "X : " + lat + "Y : " + lon);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        /*       위, 경도 테스트 끝        */
 
     }
 
@@ -245,6 +232,7 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
 
         // NaverMap 객체 받아서 NaverMap 객체에 위치 소스 지정
         mNaverMap = naverMap;
+
         mNaverMap.setLocationSource(mLocationSource);
         mNaverMap.setLocationTrackingMode(LocationTrackingMode.Follow);
 
@@ -271,6 +259,27 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
                 }
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+
+            if (bundle.getString("strSearch") != null){
+                String location = bundle.getString("strSearch");
+                try {
+                    List<Address> list = geocoder.getFromLocationName(location, 10);
+                    String city = "";
+                    String country = "";
+                    if (list.size() == 0){
+                        result.setText("올바른 주소를 입력해주세요.");
+                    } else {
+                        Address address = list.get(0);
+                        double lat = address.getLatitude();
+                        double lon = address.getLongitude();
+                        LatLng coord = new LatLng(lat, lon);
+                        mNaverMap.moveCamera(CameraUpdate.scrollTo(coord));
+                        result.setText(location);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
