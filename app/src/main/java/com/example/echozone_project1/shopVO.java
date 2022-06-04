@@ -9,6 +9,13 @@ public class shopVO {
     private String shop_nm;
     private String shop_address;
 
+    // 리스트뷰 구현
+    public int mainImage = 0;
+    public int gps = 0;
+
+    public String title = "";
+    public String body_1 = "";
+
     public shopVO(){
 
     }

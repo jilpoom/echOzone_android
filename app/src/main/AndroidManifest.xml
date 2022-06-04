@@ -18,11 +18,6 @@
         <activity
             android:name=".logoscreen"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -49,8 +44,15 @@
         <activity
             android:name=".location"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".locationList"
+            android:exported="false"/>
         <activity
             android:name=".bottombar"
             android:exported="true" />
