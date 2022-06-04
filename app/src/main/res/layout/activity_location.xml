@@ -108,7 +108,7 @@
         app:srcCompat="@drawable/arrow" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_list"
         android:layout_width="354dp"
         android:layout_height="41dp"
         android:layout_marginTop="10dp"

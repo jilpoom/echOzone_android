@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -15,6 +16,7 @@ import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -74,6 +76,7 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
 
     private ImageView btn_search;
     private EditText edt_search;
+    private Button btn_list;
 
     private FusedLocationSource mLocationSource;
     private NaverMap mNaverMap;
@@ -146,6 +149,7 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
 
         edt_search = findViewById(R.id.edt_search);
         btn_search = findViewById(R.id.btn_search);
+        btn_list = findViewById(R.id.btn_list);
 
         Geocoder geocoder = new Geocoder(this);
         // 서버 연결
@@ -194,6 +198,17 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
                 // 5. 프래그먼트 화면 보여주기
                 transaction.replace(R.id.map, mapFragment).commit();
                 mapFragment.getMapAsync(location.this::onMapReady);
+            }
+        });
+
+        // btn_list 클릭 시, edt_search값을 가지고 location list 액티비티로 이동
+        btn_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String strSearch = edt_search.getText().toString();
+
+                Intent intent = new Intent(location.this, locationList.class);
+                startActivityForResult(intent, 100);
             }
         });
 
