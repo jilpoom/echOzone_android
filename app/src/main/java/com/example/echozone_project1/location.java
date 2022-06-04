@@ -72,16 +72,14 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
             Manifest.permission.ACCESS_COARSE_LOCATION
     };
 
-    private FusedLocationSource mLocationSource;
-    private NaverMap mNaverMap;
-    private TextView result;
-    private RequestQueue requestQueue;
-    private StringRequest stringRequest;
-    private String str;
-    private TextView tv_test;
-
     private ImageView btn_search;
     private EditText edt_search;
+
+    private FusedLocationSource mLocationSource;
+    private NaverMap mNaverMap;
+    private RequestQueue requestQueue;
+    private StringRequest stringRequest;
+
 
     Bundle bundle = new Bundle();
 
@@ -148,8 +146,6 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
 
         edt_search = findViewById(R.id.edt_search);
         btn_search = findViewById(R.id.btn_search);
-        tv_test = findViewById(R.id.tv_test);
-        result = findViewById(R.id.result);
 
         Geocoder geocoder = new Geocoder(this);
         // 서버 연결
@@ -175,6 +171,7 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
 
         // str = "광주 동구 예술길 31-16";
 
+        // btn_search 클릭 시, 프래그먼트로 데이터 전달
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -195,22 +192,8 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
                 mapFragment.setArguments(bundle);
 
                 // 5. 프래그먼트 화면 보여주기
-                try {
-                    List<Address> list = geocoder.getFromLocationName(strSearch, 10);
-                    if (list.size() == 0){
-                        result.setText("올바른 주소를 입력해주세요.");
-                    } else {
-                        Address address = list.get(0);
-                        double lat = address.getLatitude();
-                        double lon = address.getLongitude();
-
-                        transaction.replace(R.id.map, mapFragment).commit();
-                        CameraUpdate cameraUpdate = CameraUpdate.scrollTo(new LatLng(lat,lon));
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+                transaction.replace(R.id.map, mapFragment).commit();
+                mapFragment.getMapAsync(location.this::onMapReady);
             }
         });
 
@@ -248,7 +231,7 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
                 String city = "";
                 String country = "";
                 if (list.size() == 0){
-                    result.setText("올바른 주소를 입력해주세요.");
+                    Toast.makeText(getApplicationContext(), "올바른 주소를 입력해주세요.", Toast.LENGTH_SHORT).show();
                 } else {
                     Address address = list.get(0);
                     double lat = address.getLatitude();
@@ -268,14 +251,14 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
                     String city = "";
                     String country = "";
                     if (list.size() == 0){
-                        result.setText("올바른 주소를 입력해주세요.");
+                        Toast.makeText(getApplicationContext(), "올바른 주소를 입력해주세요.", Toast.LENGTH_SHORT).show();
                     } else {
                         Address address = list.get(0);
                         double lat = address.getLatitude();
                         double lon = address.getLongitude();
                         LatLng coord = new LatLng(lat, lon);
                         mNaverMap.moveCamera(CameraUpdate.scrollTo(coord));
-                        result.setText(location);
+                        mNaverMap.setLocationTrackingMode(LocationTrackingMode.None);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
