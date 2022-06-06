@@ -13,8 +13,11 @@ public class shopVO {
     public int mainImage = 0;
     public int gps = 0;
 
+    public String user_mileage;
     public String title = "";
     public String body_1 = "";
+    public String body_2 = "";
+    public String body_3 = "";
 
     public shopVO(){
 

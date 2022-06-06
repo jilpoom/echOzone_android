@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/mainImage"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="25dp"
+        android:src="@drawable/historycup" />
+
+    <TextView
+        android:id="@+id/user_mileage"
+        android:layout_width="55dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:text="+300원"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendardvariable"
+            android:padding="3dp"
+            android:text="적립 - 보증금 환급"
+            android:textColor="@color/black"
+            android:textSize="13dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendardvariable"
+                android:padding="2dp"
+                android:text="일자"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/body_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendardvariable"
+                android:gravity="center"
+                android:text=" 2022.05.19 12:15"
+                android:textColor="#494949"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendardvariable"
+                android:padding="2dp"
+                android:text="장소"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/body_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendardvariable"
+                android:gravity="center"
+                android:text=" 광주광역시 동구 예술길 31-16"
+                android:textColor="#494949"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/body_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:fontFamily="@font/pretendardvariable"
+                android:gravity="center"
+                android:text=" 카페젬마"
+                android:textColor="#494949"
+                android:textSize="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

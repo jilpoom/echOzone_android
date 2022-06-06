@@ -21,11 +21,17 @@
         </activity>
 
         <activity
-            android:name=".dater_reservation"
+            android:name=".date_reservation"
             android:exported="false" />
         <activity
             android:name=".cashhistory"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".info_cap"
             android:exported="false" />
@@ -44,11 +50,6 @@
         <activity
             android:name=".location"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".locationList"
