@@ -55,9 +55,6 @@
             android:name=".locationList"
             android:exported="false"/>
         <activity
-            android:name=".bottombar"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true" />
 
