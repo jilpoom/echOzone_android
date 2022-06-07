@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +42,7 @@ public class locationList extends AppCompatActivity {
     private StringRequest stringRequest;
 
     private List<shopVO> placeList = new ArrayList<shopVO>();
+    private List<shopVO> empty = new ArrayList<shopVO>();
 
     /*     서버 연결 부분 시작     */
     public void sendRequest() {
@@ -58,6 +62,32 @@ public class locationList extends AppCompatActivity {
                         ObjectMapper objectMapper = new ObjectMapper();
                         String jsonArray = response;
                         placeList = objectMapper.readValue(jsonArray, new TypeReference<List<shopVO>>(){});
+
+                        for(int i = 0; i < placeList.size(); i++){
+                            shopVO vo = new shopVO();
+
+                            vo.mainImage = R.drawable.historycup;
+                            vo.gps = R.drawable.ic_location;
+
+                            vo.title = placeList.get(i).getShop_nm();
+                            vo.body_1 = placeList.get(i).getShop_address();
+
+                            empty.add(vo);
+                        }
+
+                        ListAdapter adapter = new CustomListView(empty);
+                        listView.setAdapter(adapter);
+                        tv_count.setText("총 " + placeList.size() + "건");
+
+                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                                String clickName = empty.get(position).title;
+                                Log.d("확인", "name : " + clickName);
+                            }
+                        });
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -98,6 +128,8 @@ public class locationList extends AppCompatActivity {
 
                 params.put("shop_address", shop_address);
 
+                Log.v("sendValueCheck", shop_address);
+
                 return params;
             }
         };
@@ -116,7 +148,5 @@ public class locationList extends AppCompatActivity {
         listView = findViewById(R.id.listView);
 
         sendRequest();
-
-
     }
 }

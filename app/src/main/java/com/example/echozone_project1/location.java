@@ -1,6 +1,7 @@
 package com.example.echozone_project1;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -10,8 +11,10 @@ import androidx.fragment.app.FragmentTransaction;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.PointF;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.util.Log;
@@ -42,9 +45,14 @@ import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapFragment;
 import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
+import com.naver.maps.map.UiSettings;
+import com.naver.maps.map.indoor.IndoorSelection;
+import com.naver.maps.map.overlay.LocationOverlay;
 import com.naver.maps.map.overlay.Marker;
+import com.naver.maps.map.overlay.Overlay;
 import com.naver.maps.map.overlay.OverlayImage;
 import com.naver.maps.map.util.FusedLocationSource;
+import com.naver.maps.map.widget.LocationButtonView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -104,7 +112,6 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
                     Log.v("resultValue", response.toString());
                     // 로그인 성공
                     try {
-
                         ObjectMapper objectMapper = new ObjectMapper();
                         String jsonArray = response;
                         placeList = objectMapper.readValue(jsonArray, new TypeReference<List<shopVO>>(){});
@@ -207,8 +214,11 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
             public void onClick(View view) {
                 String strSearch = edt_search.getText().toString();
 
-                Intent intent = new Intent(location.this, locationList.class);
-                startActivityForResult(intent, 100);
+                Intent intent = new Intent(getApplicationContext(), locationList.class);
+
+                intent.putExtra("shop_address", strSearch);
+
+                startActivity(intent);
             }
         });
 
@@ -227,6 +237,13 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
         Log.d(TAG, "onMapReady");
+
+        UiSettings uiSettings = naverMap.getUiSettings();
+        uiSettings.setLocationButtonEnabled(true);
+
+        /* LocationButtonView 커스텀 객체 생성
+        LocationButtonView locationButtonView = findViewById(R.id.location);
+        locationButtonView.setMap(mNaverMap); */
 
         // NaverMap 객체 받아서 NaverMap 객체에 위치 소스 지정
         mNaverMap = naverMap;
@@ -280,9 +297,13 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
                 }
             }
         }
-
         // 권한확인. 결과는 onRequestPermissionResult 콜백 메서드 호출
         ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_REQUEST_CODE);
+    }
+
+
+    public void changeEdit(String change){
+        edt_search.setText(change);
     }
 
 }
