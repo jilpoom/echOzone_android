@@ -1,6 +1,8 @@
 package com.example.echozone_project1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;

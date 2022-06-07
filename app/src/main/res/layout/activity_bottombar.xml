@@ -7,27 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".bottombar"
     android:background="#F4F4F4">
-   <androidx.core.widget.NestedScrollView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="vertical">
 
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="200dp"
-               android:text="Text"
-               android:gravity="center"/>
-           <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="200dp"
-           android:text="Text"
-           android:gravity="center"/>
-       </LinearLayout>
-   </androidx.core.widget.NestedScrollView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="?attr/actionBarSize"/>
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="433dp"
@@ -48,15 +38,14 @@
             app:itemIconTint="@color/blue"
             app:itemTextColor="@color/blue"
             app:labelVisibilityMode="labeled"
-            app:menu="@menu/bottom_menu" />
+            app:menu="@menu/bottom_menu"/>
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
+        android:layout_width="219dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_qr_code"
-        app:maxImageSize="35dp"
         android:backgroundTint="@color/blue"
+        android:src="@drawable/ic_qr_code"
         app:layout_anchor="@id/bottomAppBar"
-        />
+        app:maxImageSize="35dp" />
   </androidx.coordinatorlayout.widget.CoordinatorLayout>
