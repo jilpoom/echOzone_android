@@ -2,11 +2,21 @@ package com.example.echozone_project1;
 
 public class mileageVO {
 
-    private int mileage_seq;
     private String user_id;
-    private String shop_id;
     private int user_mileage;
     private String mileage_dt;
+    private String shop_nm;
+    private String shop_address;
+
+    // 리스트뷰 구현
+    public int mainImage = 0;
+
+    public String mileage;
+    public String title = "";
+    public String body_1 = "";
+    public String body_2 = "";
+    public String body_3 = "";
+
 
     public mileageVO(){
 
@@ -15,28 +25,20 @@ public class mileageVO {
     @Override
     public String toString() {
         return "mileageVO{" +
-                "mileage_seq=" + mileage_seq +
-                ", user_id='" + user_id + '\'' +
-                ", shop_id='" + shop_id + '\'' +
+                "user_id='" + user_id + '\'' +
                 ", user_mileage=" + user_mileage +
                 ", mileage_dt='" + mileage_dt + '\'' +
+                ", shop_nm='" + shop_nm + '\'' +
+                ", shop_address='" + shop_address + '\'' +
                 '}';
     }
 
-    public mileageVO(int mileage_seq, String user_id, String shop_id, int user_mileage, String mileage_dt) {
-        this.mileage_seq = mileage_seq;
+    public mileageVO(String user_id, int user_mileage, String mileage_dt, String shop_nm, String shop_address) {
         this.user_id = user_id;
-        this.shop_id = shop_id;
         this.user_mileage = user_mileage;
         this.mileage_dt = mileage_dt;
-    }
-
-    public int getMileage_seq() {
-        return mileage_seq;
-    }
-
-    public void setMileage_seq(int mileage_seq) {
-        this.mileage_seq = mileage_seq;
+        this.shop_nm = shop_nm;
+        this.shop_address = shop_address;
     }
 
     public String getUser_id() {
@@ -45,14 +47,6 @@ public class mileageVO {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
-    }
-
-    public String getShop_id() {
-        return shop_id;
-    }
-
-    public void setShop_id(String shop_id) {
-        this.shop_id = shop_id;
     }
 
     public int getUser_mileage() {
@@ -69,5 +63,21 @@ public class mileageVO {
 
     public void setMileage_dt(String mileage_dt) {
         this.mileage_dt = mileage_dt;
+    }
+
+    public String getShop_nm() {
+        return shop_nm;
+    }
+
+    public void setShop_nm(String shop_nm) {
+        this.shop_nm = shop_nm;
+    }
+
+    public String getShop_address() {
+        return shop_address;
+    }
+
+    public void setShop_address(String shop_address) {
+        this.shop_address = shop_address;
     }
 }

@@ -16,7 +16,7 @@
         android:src="@drawable/historycup" />
 
     <TextView
-        android:id="@+id/user_mileage"
+        android:id="@+id/mileage"
         android:layout_width="55dp"
         android:layout_height="25dp"
         android:layout_marginTop="16dp"

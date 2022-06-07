@@ -16,10 +16,10 @@ import java.util.List;
 public class CustomListView2 extends BaseAdapter {
 
     LayoutInflater layoutInflater = null;
-    private List<shopVO> list = null;
+    private List<mileageVO> list = null;
     private int count = 0;
 
-    public CustomListView2(List<shopVO> listData){
+    public CustomListView2(List<mileageVO> listData){
         list = listData;
         count = list.size();
     }
@@ -53,7 +53,7 @@ public class CustomListView2 extends BaseAdapter {
 
         ImageView mainImage = convertView.findViewById(R.id.mainImage);
 
-        TextView user_mileage = convertView.findViewById(R.id.user_mileage);
+        TextView mileage = convertView.findViewById(R.id.mileage);
         TextView title = convertView.findViewById(R.id.title);
         TextView body_1 = convertView.findViewById(R.id.body_1);
         TextView body_2 = convertView.findViewById(R.id.body_2);
@@ -63,7 +63,7 @@ public class CustomListView2 extends BaseAdapter {
 
         mainImage.setImageResource(list.get(position).mainImage);
 
-        user_mileage.setText(list.get(position).user_mileage);
+        mileage.setText(list.get(position).mileage);
         title.setText(list.get(position).title);
         body_1.setText(list.get(position).body_1);
         body_2.setText(list.get(position).body_2);
