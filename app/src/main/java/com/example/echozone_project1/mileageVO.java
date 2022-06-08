@@ -19,7 +19,6 @@ public class mileageVO {
     public String body_3 = "";
     public String cnt;
 
-
     public mileageVO(){
 
     }
