@@ -39,7 +39,7 @@ public class date_reservation extends AppCompatActivity {
         btn_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tv_result1.setText(edt_searchText.toString());
+                tv_result1.setText(edt_searchText.getText());
             }
         });
 

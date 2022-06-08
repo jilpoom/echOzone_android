@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.w3c.dom.Text;
 
 import java.io.UnsupportedEncodingException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
     private List<mileageVO> mileageVOList = new ArrayList<mileageVO>();
 
-    /*     서버 연결 부분 시작 (회원정보 가져오기)     */
+    int sum;
+
+    /*     서버 연결 부분 시작 (적립내역 가져오기)     */
     public void sendRequest() {
         // RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -132,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
     }
     /*      서버 연결 부분 끝      */
 
-    /*     서버 연결 부분 시작 (적립내역)      */
+    /*     서버 연결 부분 시작 (현재 적립금액)      */
     public void sendRequest1() {
         // RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -151,6 +155,14 @@ public class MainActivity extends AppCompatActivity {
                         ObjectMapper objectMapper = new ObjectMapper();
                         String jsonArray = response;
                         mileageVOList = objectMapper.readValue(jsonArray, new TypeReference<List<mileageVO>>(){});
+                        for(int i = 0; i < mileageVOList.size(); i++){
+                            sum += mileageVOList.get(i).getUser_mileage();
+                        }
+
+                        DecimalFormat df = new DecimalFormat("###,###");
+                        String money = df.format(sum);
+
+                        user_mileage.setText(money +"");
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -221,6 +233,8 @@ public class MainActivity extends AppCompatActivity {
         user_name.setText(LoginCheck.info.getName());
 
         sendRequest();
+
+        sendRequest1();
 
     }
 }

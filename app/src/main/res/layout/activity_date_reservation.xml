@@ -7,6 +7,28 @@
     android:background="#FFFFFF"
     tools:context=".date_reservation">
 
+    <View
+        android:id="@+id/view5"
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="180dp"
+        android:background="#CDCDCD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="504dp"
+        android:background="#CDCDCD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="362dp"
@@ -36,12 +58,14 @@
         android:id="@+id/edt_searchText"
         android:layout_width="367dp"
         android:layout_height="46dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/round_date"
         android:ems="10"
+        android:fontFamily="@font/pretendardvariable"
         android:inputType="textPersonName"
+        android:paddingLeft="50dp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -49,7 +73,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:fontFamily="@font/pretendardvariable"
         android:text="검색할 업체를 입력하세요."
         android:textColor="@color/blue"
@@ -57,7 +81,7 @@
         app:layout_constraintBottom_toTopOf="@+id/edt_searchText"
         app:layout_constraintStart_toStartOf="@+id/edt_searchText"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.966" />
+        app:layout_constraintVertical_bias="0.875" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -81,22 +105,63 @@
 
     <TextView
         android:id="@+id/tv_result1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_width="175dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/layout_border"
+        android:fontFamily="@font/pretendardvariable"
+        android:gravity="center"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/calendarView"
-        app:layout_constraintHorizontal_bias="0.496"
+        android:textColor="@color/black"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/calendarView"
         app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
-    <TextView
-        android:id="@+id/tv_result2"
+    <ImageView
+        android:id="@+id/imageView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_result1"
+        app:layout_constraintTop_toTopOf="@+id/tv_result1"
+        app:srcCompat="@drawable/ic_baseline_business_center_24" />
+
+    <TextView
+        android:id="@+id/tv_result2"
+        android:layout_width="175dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/layout_border"
+        android:fontFamily="@font/pretendardvariable"
+        android:gravity="center"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/tv_result1"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_result1"
+        app:layout_constraintTop_toTopOf="@+id/tv_result1" />
+
+    <ImageView
+        android:id="@+id/imageView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_result2"
+        app:layout_constraintTop_toTopOf="@+id/tv_result2"
+        app:srcCompat="@drawable/ic_baseline_calendar_month_24" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="360dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_round"
+        android:text="예약 신청"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result2"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/tv_result1"
         app:layout_constraintTop_toBottomOf="@+id/tv_result1" />
 
