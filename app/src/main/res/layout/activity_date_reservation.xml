@@ -107,7 +107,7 @@
         android:id="@+id/tv_result1"
         android:layout_width="175dp"
         android:layout_height="37dp"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/layout_border"
         android:fontFamily="@font/pretendardvariable"
@@ -154,10 +154,10 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="360dp"
-        android:layout_height="37dp"
+        android:layout_width="358dp"
+        android:layout_height="36dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/button_round"
+        android:background="@drawable/button_round2"
         android:text="예약 신청"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/tv_result2"
