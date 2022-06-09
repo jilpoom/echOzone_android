@@ -3,11 +3,13 @@ package com.example.echozone_project1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -147,6 +149,14 @@ public class locationList extends AppCompatActivity {
         tv_count = findViewById(R.id.tv_count);
         listView = findViewById(R.id.listView);
 
+        ImageView imageView20 = (ImageView) findViewById(R.id.imageView20);
+        imageView20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent imageView20 = new Intent(getApplicationContext(),location.class);
+                startActivity(imageView20);
+            }
+        });
         sendRequest();
     }
 }
