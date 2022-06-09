@@ -224,7 +224,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/logout"
             android:layout_width="333dp"
             android:layout_height="53dp"
             android:layout_marginTop="376dp"

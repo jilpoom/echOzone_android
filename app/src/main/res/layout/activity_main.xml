@@ -8,19 +8,6 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView22"
-        android:layout_width="416dp"
-        android:layout_height="119dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/bottombar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView"
-        app:layout_constraintVertical_bias="0.058" />
-
-    <ImageView
         android:id="@+id/imageView3"
         android:layout_width="36dp"
         android:layout_height="39dp"
@@ -311,5 +298,65 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    <Button
+        android:id="@+id/ac_qrcode"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="182dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_qr_code"
+        app:layout_constraintStart_toStartOf="@+id/imageView22"
+        app:layout_constraintTop_toTopOf="@+id/imageView22" />
+
+    <Button
+        android:id="@+id/ac_history"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ic_history"
+        app:layout_constraintStart_toStartOf="@+id/imageView22"
+        app:layout_constraintTop_toTopOf="@+id/imageView22" />
+
+    <Button
+        android:id="@+id/ac_location"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ic_location"
+        app:layout_constraintStart_toStartOf="@+id/imageView22"
+        app:layout_constraintTop_toTopOf="@+id/imageView22" />
+
+    <Button
+        android:id="@+id/ac_menu"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="324dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/menuicon"
+        app:layout_constraintStart_toStartOf="@+id/imageView22"
+        app:layout_constraintTop_toTopOf="@+id/imageView22" />
+
+    <Button
+        android:id="@+id/ac_mypage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ic_favorite"
+        app:layout_constraintStart_toStartOf="@+id/imageView22"
+        app:layout_constraintTop_toTopOf="@+id/imageView22" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="536dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backgroundbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

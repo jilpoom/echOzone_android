@@ -66,6 +66,53 @@ public class cashhistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cashhistory);
 
+        Button ca_qrcode = (Button) findViewById(R.id.ca_qrcode);
+        ca_qrcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ca_qrcode = new Intent(getApplicationContext(),CreateQR.class);
+                startActivity(ca_qrcode);
+            }
+        });
+
+        Button ca_history = (Button) findViewById(R.id.ca_history);
+        ca_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ca_history = new Intent(getApplicationContext(),cashhistory.class);
+                startActivity(ca_history);
+            }
+        });
+
+        Button ca_location = (Button) findViewById(R.id.ca_location);
+        ca_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ca_location = new Intent(getApplicationContext(),location.class);
+                startActivity(ca_location);
+            }
+        });
+
+
+        Button ca_menu = (Button) findViewById(R.id.ca_menu);
+        ca_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ca_menu = new Intent(getApplicationContext(),menu.class);
+                startActivity(ca_menu);
+            }
+        });
+
+        Button ca_mypage = (Button) findViewById(R.id.ca_mypage);
+        ca_mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ca_mypage = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(ca_mypage);
+            }
+        });
+        //------- 하단바 연결 --------
+
         text_date1 = findViewById(R.id.text_date1);
         text_date2 = findViewById(R.id.text_date2);
         date_number = findViewById(R.id.date_number);
@@ -245,7 +292,6 @@ public class cashhistory extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
     /*      서버 연결 부분 끝      */
-
 
 
 

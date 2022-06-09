@@ -7,6 +7,56 @@
     android:background="#FFFFFF"
     tools:context=".MainActivity2">
 
+    <Button
+        android:id="@+id/ca_history"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ic_history"
+        app:layout_constraintStart_toStartOf="@+id/imageView29"
+        app:layout_constraintTop_toTopOf="@+id/imageView29" />
+
+    <Button
+        android:id="@+id/ca_location"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ic_location"
+        app:layout_constraintStart_toStartOf="@+id/imageView29"
+        app:layout_constraintTop_toTopOf="@+id/imageView29" />
+
+    <Button
+        android:id="@+id/ca_menu"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="324dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/menuicon"
+        app:layout_constraintStart_toStartOf="@+id/imageView29"
+        app:layout_constraintTop_toTopOf="@+id/imageView29" />
+
+    <Button
+        android:id="@+id/ca_mypage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ic_favorite"
+        app:layout_constraintStart_toStartOf="@+id/imageView29"
+        app:layout_constraintTop_toTopOf="@+id/imageView29" />
+
+    <ImageView
+        android:id="@+id/imageView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="536dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backgroundbar" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -17,7 +67,7 @@
         android:text="적립 내역"
         android:textColor="#000000"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -191,6 +241,16 @@
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <Button
+        android:id="@+id/ca_qrcode"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="182dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_qr_code"
+        app:layout_constraintStart_toStartOf="@+id/imageView29"
+        app:layout_constraintTop_toTopOf="@+id/imageView29" />
 
     <ListView
         android:id="@+id/listview"

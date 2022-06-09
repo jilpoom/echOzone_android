@@ -2,8 +2,10 @@ package com.example.echozone_project1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.TextView;
@@ -33,6 +35,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     private TextView user_name;
     private TextView user_mileage;
     private TextView tv_date;
@@ -45,10 +49,14 @@ public class MainActivity extends AppCompatActivity {
 
     private List<mileageVO> mileageVOList = new ArrayList<mileageVO>();
 
+
+
     int sum;
+
 
     /*     서버 연결 부분 시작 (적립내역 가져오기)     */
     public void sendRequest() {
+
         // RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
@@ -236,5 +244,50 @@ public class MainActivity extends AppCompatActivity {
 
         sendRequest1();
 
+        Button ac_qrcode = (Button) findViewById(R.id.ac_qrcode);
+        ac_qrcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ac_qrcode = new Intent(getApplicationContext(),CreateQR.class);
+                startActivity(ac_qrcode);
+            }
+        });
+
+        Button ac_history = (Button) findViewById(R.id.ac_history);
+        ac_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ac_history = new Intent(getApplicationContext(),cashhistory.class);
+                startActivity(ac_history);
+            }
+        });
+
+        Button ac_location = (Button) findViewById(R.id.ac_location);
+        ac_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ac_location = new Intent(getApplicationContext(), location.class);
+                startActivity(ac_location);
+            }
+        });
+
+        Button ac_menu = (Button) findViewById(R.id.ac_menu);
+        ac_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ac_menu = new Intent(getApplicationContext(), menu.class);
+                startActivity(ac_menu);
+            }
+        });
+
+        Button ac_mypage = (Button) findViewById(R.id.ac_mypage);
+        ac_mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ac_mypage = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(ac_mypage);
+            }
+        });
     }
+
 }

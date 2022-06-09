@@ -158,6 +158,15 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
         btn_search = findViewById(R.id.btn_search);
         btn_list = findViewById(R.id.btn_list);
 
+        ImageView imageView2 = (ImageView) findViewById(R.id.imageView2);
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent imageView2 = new Intent(getApplicationContext(), menu.class);
+                startActivity(imageView2);
+            }
+        });
+
         Geocoder geocoder = new Geocoder(this);
         // 서버 연결
         sendRequest();
@@ -300,7 +309,6 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
         // 권한확인. 결과는 onRequestPermissionResult 콜백 메서드 호출
         ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_REQUEST_CODE);
     }
-
 
     public void changeEdit(String change){
         edt_search.setText(change);

@@ -6,6 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".favorite">
 
+    <Button
+        android:id="@+id/fa_history"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ic_history"
+        app:layout_constraintStart_toStartOf="@+id/imageView28"
+        app:layout_constraintTop_toTopOf="@+id/imageView28" />
+
+    <Button
+        android:id="@+id/fa_location"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ic_location"
+        app:layout_constraintStart_toStartOf="@+id/imageView28"
+        app:layout_constraintTop_toTopOf="@+id/imageView28" />
+
+    <Button
+        android:id="@+id/fa_menu"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="324dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/menuicon"
+        app:layout_constraintStart_toStartOf="@+id/imageView28"
+        app:layout_constraintTop_toTopOf="@+id/imageView28" />
+
+    <Button
+        android:id="@+id/fa_mypage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ic_favorite"
+        app:layout_constraintStart_toStartOf="@+id/imageView28"
+        app:layout_constraintTop_toTopOf="@+id/imageView28" />
+
+    <ImageView
+        android:id="@+id/imageView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="536dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backgroundbar" />
+
     <LinearLayout
         android:id="@+id/layout_rank"
         android:layout_width="374dp"
@@ -226,9 +276,19 @@
         android:text="즐겨 찾기"
         android:textColor="#000000"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/fa_qrcode"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="182dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_qr_code"
+        app:layout_constraintStart_toStartOf="@+id/imageView28"
+        app:layout_constraintTop_toTopOf="@+id/imageView28" />
 
     <ListView
         android:id="@+id/favoriteList"
@@ -239,6 +299,8 @@
         android:dividerHeight="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_rank" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_rank" >
+
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,10 +2,12 @@ package com.example.echozone_project1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -49,6 +51,52 @@ public class favorite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite);
+
+        Button fa_qrcode = (Button) findViewById(R.id.fa_qrcode);
+        fa_qrcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent fa_qrcode = new Intent(getApplicationContext(),CreateQR.class);
+                startActivity(fa_qrcode);
+            }
+        });
+
+        Button fa_history = (Button) findViewById(R.id.fa_history);
+        fa_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent fa_history = new Intent(getApplicationContext(),cashhistory.class);
+                startActivity(fa_history);
+            }
+        });
+
+        Button fa_location = (Button) findViewById(R.id.fa_location);
+        fa_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent fa_location = new Intent(getApplicationContext(),location.class);
+                startActivity(fa_location);
+            }
+        });
+
+      Button fa_mypage = (Button) findViewById(R.id.fa_mypage);
+        fa_mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent fa_mypage = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(fa_mypage);
+            }
+        });
+
+        Button fa_menu = (Button) findViewById(R.id.fa_menu);
+        fa_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent fa_menu = new Intent(getApplicationContext(),menu.class);
+                startActivity(fa_menu);
+            }
+        });
+        // 하단바 연결
 
         tv_first_nm = findViewById(R.id.tv_first_nm);
         tv_second_nm = findViewById(R.id.tv_second_nm);

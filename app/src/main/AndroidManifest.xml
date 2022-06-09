@@ -16,36 +16,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Echozone_project1">
         <activity
+            android:name=".storemenu"
+            android:exported="false" />
+        <activity
             android:name=".favorite"
             android:exported="true">
-        </activity>
-        <activity
-            android:name=".logoscreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".date_reservation"
             android:exported="true">
+
         </activity>
         <activity
             android:name=".cashhistory"
+            android:exported="true"></activity>
+        <activity android:name=".logoscreen"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".info_cap"
             android:exported="false" />
         <activity
             android:name=".join"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".login"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity2"
             android:exported="true" />
@@ -54,8 +55,7 @@
             android:exported="false" />
         <activity
             android:name=".location"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".locationList"
             android:exported="false" />
@@ -64,9 +64,15 @@
             android:exported="false" />
         <activity
             android:name=".menu"
-            android:exported="true"/>
+            android:exported="true" />
+
+        <activity
+            android:name=".Machine"
+            android:exported="false" />
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="r6lqo8nkaa" />
     </application>
+
 </manifest>
