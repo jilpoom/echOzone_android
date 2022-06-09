@@ -69,22 +69,22 @@ public class MainActivity extends AppCompatActivity {
 
                         for(int i = 0; i < 5; i++){
                             switch (i){
-                                case 1:
+                                case(0):
                                     tv_1.setText(mileageVOList.get(1).getMileage_dt());
                                     tv_2.setText(mileageVOList.get(1).getShop_nm());
                                     tv_3.setText(mileageVOList.get(1).getShop_address());
                                     break;
-                                case(2):
+                                case(1):
                                     tv_4.setText(mileageVOList.get(2).getMileage_dt());
                                     tv_5.setText(mileageVOList.get(2).getShop_nm());
                                     tv_6.setText(mileageVOList.get(2).getShop_address());
                                     break;
-                                case(3):
+                                case(2):
                                     tv_7.setText(mileageVOList.get(3).getMileage_dt());
                                     tv_8.setText(mileageVOList.get(3).getShop_nm());
                                     tv_9.setText(mileageVOList.get(3).getShop_address());
                                     break;
-                                case(4):
+                                case(3):
                                     tv_10.setText(mileageVOList.get(4).getMileage_dt());
                                     tv_11.setText(mileageVOList.get(4).getShop_nm());
                                     tv_12.setText(mileageVOList.get(4).getShop_address());

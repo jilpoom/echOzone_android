@@ -7,6 +7,7 @@ public class mileageVO {
     private String mileage_dt;
     private String shop_nm;
     private String shop_address;
+    private int count;
 
     // 리스트뷰 구현
     public int mainImage = 0;
@@ -16,7 +17,7 @@ public class mileageVO {
     public String body_1 = "";
     public String body_2 = "";
     public String body_3 = "";
-
+    public String cnt;
 
     public mileageVO(){
 
@@ -30,15 +31,17 @@ public class mileageVO {
                 ", mileage_dt='" + mileage_dt + '\'' +
                 ", shop_nm='" + shop_nm + '\'' +
                 ", shop_address='" + shop_address + '\'' +
+                ", count='" + count + '\'' +
                 '}';
     }
 
-    public mileageVO(String user_id, int user_mileage, String mileage_dt, String shop_nm, String shop_address) {
+    public mileageVO(String user_id, int user_mileage, String mileage_dt, String shop_nm, String shop_address, int count) {
         this.user_id = user_id;
         this.user_mileage = user_mileage;
         this.mileage_dt = mileage_dt;
         this.shop_nm = shop_nm;
         this.shop_address = shop_address;
+        this.count = count;
     }
 
     public String getUser_id() {
@@ -79,5 +82,13 @@ public class mileageVO {
 
     public void setShop_address(String shop_address) {
         this.shop_address = shop_address;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
