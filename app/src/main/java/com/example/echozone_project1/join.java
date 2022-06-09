@@ -1,6 +1,5 @@
 package com.example.echozone_project1;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,13 +13,10 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
-import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -46,13 +42,13 @@ public class join extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
 
-        join_id = findViewById(R.id.join_id);
+        join_id = findViewById(R.id.machine_id);
         join_pw = findViewById(R.id.join_pw);
         join_name = findViewById(R.id.join_name);
         join_phone = findViewById(R.id.join_phone);
         join_address = findViewById(R.id.join_address);
         join_type = (RadioGroup) findViewById(R.id.join_type);
-        btn_signUp = findViewById(R.id.btn_signUp);
+        btn_signUp = findViewById(R.id.btn_machine);
 
         int id = join_type.getCheckedRadioButtonId();
         type_result = (RadioButton) findViewById(id);

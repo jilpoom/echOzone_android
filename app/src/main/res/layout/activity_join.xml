@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btn_signUp"
+            android:id="@+id/btn_machine"
             android:layout_width="210dp"
             android:layout_height="45dp"
             android:layout_marginBottom="24dp"
@@ -43,7 +43,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/join_id"
+            android:id="@+id/machine_id"
             android:layout_width="210dp"
             android:layout_height="35dp"
             android:layout_marginTop="40dp"
@@ -97,9 +97,9 @@
             android:inputType="textPersonName"
             android:paddingLeft="15dp"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/join_id"
-            app:layout_constraintStart_toStartOf="@+id/join_id"
-            app:layout_constraintTop_toBottomOf="@+id/join_id" />
+            app:layout_constraintEnd_toEndOf="@+id/machine_id"
+            app:layout_constraintStart_toStartOf="@+id/machine_id"
+            app:layout_constraintTop_toBottomOf="@+id/machine_id" />
 
         <EditText
             android:id="@+id/join_name"
@@ -128,7 +128,7 @@
             android:textAlignment="gravity"
             android:textColor="@color/blue"
             android:textSize="10sp"
-            app:layout_constraintStart_toStartOf="@+id/join_id"
+            app:layout_constraintStart_toStartOf="@+id/machine_id"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -144,7 +144,7 @@
             android:textColor="@color/blue"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@+id/join_pw"
-            app:layout_constraintTop_toBottomOf="@+id/join_id" />
+            app:layout_constraintTop_toBottomOf="@+id/machine_id" />
 
         <TextView
             android:id="@+id/textView18"

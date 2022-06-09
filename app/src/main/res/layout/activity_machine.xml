@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Machine">
+
+    <ImageView
+        android:id="@+id/imageView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.971"
+        app:srcCompat="@drawable/backgroundbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/machin_back"
+        android:layout_width="299dp"
+        android:layout_height="330dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/layout_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="기계 등록"
+            android:textColor="@color/blue"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_machine"
+            android:layout_width="210dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_round"
+            android:elevation="20dp"
+            android:text="등록하기"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/machine_id"
+            android:layout_width="210dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/layout_border"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="40dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="132dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="기계번호"
+            android:textAlignment="gravity"
+            android:textColor="@color/blue"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/machine_id"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/ma_home2"
+        android:layout_width="28dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="185dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/homeicon"
+        app:layout_constraintStart_toStartOf="@+id/imageView27"
+        app:layout_constraintTop_toTopOf="@+id/imageView27" />
+
+    <Button
+        android:id="@+id/ma_machine"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="54dp"
+        android:background="@drawable/plusicon"
+        app:layout_constraintStart_toStartOf="@+id/imageView27"
+        app:layout_constraintTop_toTopOf="@+id/imageView27" />
+
+    <Button
+        android:id="@+id/ma_calendar"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/calendaricon"
+        app:layout_constraintStart_toStartOf="@+id/imageView27"
+        app:layout_constraintTop_toTopOf="@+id/imageView27" />
+
+    <Button
+        android:id="@+id/ma_store"
+        android:layout_width="30dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/storeicon"
+        app:layout_constraintStart_toStartOf="@+id/imageView27"
+        app:layout_constraintTop_toTopOf="@+id/imageView27" />
+
+    <Button
+        android:id="@+id/ma_menu"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="324dp"
+        android:layout_marginTop="55dp"
+        android:background="@drawable/menuicon"
+        app:layout_constraintStart_toStartOf="@+id/imageView27"
+        app:layout_constraintTop_toTopOf="@+id/imageView27" />
+</androidx.constraintlayout.widget.ConstraintLayout>
