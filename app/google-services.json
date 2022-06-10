@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "28727642493",
+    "project_id": "echozone-5079b",
+    "storage_bucket": "echozone-5079b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28727642493:android:7bd677a554c27457dfe414",
+        "android_client_info": {
+          "package_name": "com.example.echozone_project1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28727642493-3nst5hkdfu54ro0rhj3ktjh1q878eh88.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsKxXpWWC6gW6jJkllg2vAMFyIHJJtizk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28727642493-3nst5hkdfu54ro0rhj3ktjh1q878eh88.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

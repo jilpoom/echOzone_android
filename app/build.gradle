@@ -57,4 +57,13 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.4'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.4'
     implementation 'com.github.bumptech.glide:glide:3.7.0'  // gif 라이브러리
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:30.1.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-messaging:23.0.5'
+    // Maven
+
 }
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
