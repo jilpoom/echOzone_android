@@ -164,6 +164,7 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
             public void onClick(View view) {
                 Intent imageView2 = new Intent(getApplicationContext(), menu.class);
                 startActivity(imageView2);
+                overridePendingTransition(0,0);
             }
         });
 

@@ -25,6 +25,7 @@ public class info_cap extends AppCompatActivity {
                                       public void onClick(View view) {
                                           Intent intent2 = new Intent(getApplicationContext(), Machine.class);
                                           startActivity(intent2);
+                                          overridePendingTransition(0,0);
                                       }
                                   });
                 Button calender1 = (Button) findViewById(R.id.sc_calendar1);
@@ -33,6 +34,7 @@ public class info_cap extends AppCompatActivity {
                                                  public void onClick(View view) {
                                                      Intent intent1 = new Intent(getApplicationContext(), date_reservation.class);
                                                      startActivity(intent1);
+                                                     overridePendingTransition(0,0);
                                                  }
                                              });
                         Button home1 = (Button) findViewById(R.id.sc_menu1);
@@ -41,6 +43,7 @@ public class info_cap extends AppCompatActivity {
                             public void onClick(View view) {
                                 Intent st_menu1 = new Intent(getApplicationContext(), storemenu.class);
                                 startActivity(st_menu1);
+                                overridePendingTransition(0,0);
                             }
                         });
 
@@ -50,6 +53,7 @@ public class info_cap extends AppCompatActivity {
             public void onClick(View view) {
                 Intent sc_home1 = new Intent(getApplicationContext(),info_cap.class);
                 startActivity(sc_home1);
+                overridePendingTransition(0,0);
             }
         });
                         ImageView info = findViewById(R.id.info80);
