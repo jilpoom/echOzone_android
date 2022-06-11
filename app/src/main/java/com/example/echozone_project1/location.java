@@ -158,15 +158,6 @@ public class location extends AppCompatActivity implements OnMapReadyCallback{
         btn_search = findViewById(R.id.btn_search);
         btn_list = findViewById(R.id.btn_list);
 
-        ImageView imageView2 = (ImageView) findViewById(R.id.imageView2);
-        imageView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent imageView2 = new Intent(getApplicationContext(), menu.class);
-                startActivity(imageView2);
-                overridePendingTransition(0,0);
-            }
-        });
 
         Geocoder geocoder = new Geocoder(this);
         // 서버 연결

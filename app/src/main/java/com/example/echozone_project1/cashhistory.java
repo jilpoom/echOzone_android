@@ -57,7 +57,7 @@ public class cashhistory extends AppCompatActivity {
     private StringRequest stringRequest;
 
     private List<mileageVO> mileageList = new ArrayList<mileageVO>();
-    private List<mileageVO> empty = new ArrayList<mileageVO>();
+
 
 
 
@@ -119,9 +119,31 @@ public class cashhistory extends AppCompatActivity {
                 }else{
                     fdayOfMonth = dayOfMonth + "";
                 }
-
-
                 text_date1.setText(year + "." + fmonth + "." + fdayOfMonth);
+
+            }
+        }, mYear, mMonth, mDay);
+
+        DatePickerDialog datePickerDialog2 = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                String fmonth = "";
+                String fdayOfMonth = "";
+
+                if (month + 1 < 10){
+                    fmonth = "0" + (month + 1);
+                } else{
+                    fmonth = month + "";
+                }
+
+                if (dayOfMonth < 10){
+                    fdayOfMonth = "0" + dayOfMonth;
+                }else{
+                    fdayOfMonth = dayOfMonth + "";
+                }
+                text_date2.setText(year + "." + fmonth + "." + fdayOfMonth);
+
             }
         }, mYear, mMonth, mDay);
 
@@ -138,7 +160,7 @@ public class cashhistory extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(text_date2.isClickable()){
-                    datePickerDialog.show();
+                    datePickerDialog2.show();
                 }
             }
         });
@@ -149,7 +171,10 @@ public class cashhistory extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                sendRequest2();
+                String date1 = text_date1.getText().toString();
+                String date2 = text_date2.getText().toString();
+                Log.v("파라미터 확인", date1 + " / " + date2);
+                sendRequest2(date1, date2);
 
             }
         });
@@ -161,6 +186,7 @@ public class cashhistory extends AppCompatActivity {
     public void sendRequest() {
         // RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(getApplicationContext());
+        List<mileageVO> empty = new ArrayList<mileageVO>();
 
         // 서버에 요청할 주소
         String url = "http://220.80.203.109:8081/web/history.do";
@@ -199,7 +225,7 @@ public class cashhistory extends AppCompatActivity {
                         DecimalFormat df = new DecimalFormat("###,###");
                         String money = df.format(sum);
 
-                        cash.setText(money + "원");
+                        cash.setText(money + " 원");
 
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
@@ -256,12 +282,13 @@ public class cashhistory extends AppCompatActivity {
     }
     /*      서버 연결 부분 끝      */
 
-    public void sendRequest2(){
+    public void sendRequest2(String date1, String date2){
         // RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(getApplicationContext());
+        List<mileageVO> empty = new ArrayList<mileageVO>();
 
         // 서버에 요청할 주소
-        String url = "http://220.80.203.109:8081/web/date_history.do";
+        String url = "http://220.80.203.109:8081/web/dateHistory.do";
 
         // 요청 시 필요한 문자열 객체
         stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -273,6 +300,7 @@ public class cashhistory extends AppCompatActivity {
                         ObjectMapper objectMapper = new ObjectMapper();
                         String jsonArray = response;
                         mileageList = objectMapper.readValue(jsonArray, new TypeReference<List<mileageVO>>(){});
+                        sum = 0;
                         cnt = mileageList.size();
                         for(int i = 0; i < mileageList.size(); i++){
                             mileageVO vo = new mileageVO();
@@ -297,7 +325,7 @@ public class cashhistory extends AppCompatActivity {
                         DecimalFormat df = new DecimalFormat("###,###");
                         String money = df.format(sum);
 
-                        cash.setText(money + "원");
+                        cash.setText(money + " 원");
 
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
@@ -345,9 +373,10 @@ public class cashhistory extends AppCompatActivity {
                 // 나중에 user_id를 LoginCheck.info.getId()를 통해 가져오도록 수정
                 // String user_id = LoginCheck.info.getId();
 
-                params.put("text_date1", text_date1.toString());
-                params.put("text_date2", text_date2.toString());
-                params.put("user_id", "nmmng03");
+                params.put("user_id", LoginCheck.info.getId());
+                params.put("text_date1", date1);
+                params.put("text_date2", date2);
+                Log.v("파라미터 확인2", LoginCheck.info.getId() + " / " + date1 + " / " + date2);
 
                 return params;
             }
