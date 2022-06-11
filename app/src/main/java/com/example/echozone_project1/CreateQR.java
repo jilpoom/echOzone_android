@@ -33,7 +33,7 @@ public class CreateQR extends AppCompatActivity {
         qr_cancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent qr_cancle = new Intent(getApplicationContext(),menu.class);
+                Intent qr_cancle = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(qr_cancle);
                 overridePendingTransition(0,0);
             }
@@ -51,4 +51,5 @@ public class CreateQR extends AppCompatActivity {
             iv.setImageBitmap(bitmap);
         }catch(Exception e){}
     }
+
 }
