@@ -260,6 +260,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ac_history = new Intent(getApplicationContext(),cashhistory.class);
                 startActivity(ac_history);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -269,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ac_location = new Intent(getApplicationContext(), location.class);
                 startActivity(ac_location);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -278,6 +280,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ac_menu = new Intent(getApplicationContext(), menu.class);
                 startActivity(ac_menu);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -287,6 +290,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ac_mypage = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(ac_mypage);
+                overridePendingTransition(0,0);
             }
         });
     }

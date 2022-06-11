@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -147,6 +147,15 @@ public class locationList extends AppCompatActivity {
         tv_count = findViewById(R.id.tv_count);
         listView = findViewById(R.id.listView);
 
+        ImageView list_cancle = (ImageView) findViewById(R.id.list_cancle);
+        list_cancle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent list_cancle = new Intent(getApplicationContext(),location.class);
+                startActivity(list_cancle);
+                overridePendingTransition(0,0);
+            }
+        });
         sendRequest();
     }
 }

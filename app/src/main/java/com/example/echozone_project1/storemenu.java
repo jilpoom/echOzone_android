@@ -22,6 +22,7 @@ public class storemenu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent st_logout = new Intent(getApplicationContext(),login.class);
                 startActivity(st_logout);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -32,6 +33,7 @@ public class storemenu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent machine_me = new Intent(getApplicationContext(),Machine.class);
                 startActivity(machine_me);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -42,6 +44,7 @@ public class storemenu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent collection = new Intent(getApplicationContext(),date_reservation.class);
                 startActivity(collection);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -52,6 +55,7 @@ public class storemenu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent imageView9 = new Intent(getApplicationContext(),info_cap.class);
                 startActivity(imageView9);
+                overridePendingTransition(0,0);
             }
         });
     }

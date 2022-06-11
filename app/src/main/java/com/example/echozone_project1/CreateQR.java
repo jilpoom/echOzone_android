@@ -29,11 +29,12 @@ public class CreateQR extends AppCompatActivity {
             public void onClick(View view) {
                 Intent qr_cancle = new Intent(getApplicationContext(),menu.class);
                 startActivity(qr_cancle);
+                overridePendingTransition(0,0);
             }
         });
 
         iv = (ImageView)findViewById(R.id.qrcode);
-        text = "http://park-duck.tistory.com";
+        text = "29";
 
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
 

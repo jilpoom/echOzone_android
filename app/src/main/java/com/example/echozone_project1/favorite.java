@@ -58,6 +58,7 @@ public class favorite extends AppCompatActivity {
             public void onClick(View view) {
                 Intent fa_qrcode = new Intent(getApplicationContext(),CreateQR.class);
                 startActivity(fa_qrcode);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -67,6 +68,7 @@ public class favorite extends AppCompatActivity {
             public void onClick(View view) {
                 Intent fa_history = new Intent(getApplicationContext(),cashhistory.class);
                 startActivity(fa_history);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -76,6 +78,7 @@ public class favorite extends AppCompatActivity {
             public void onClick(View view) {
                 Intent fa_location = new Intent(getApplicationContext(),location.class);
                 startActivity(fa_location);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -85,6 +88,7 @@ public class favorite extends AppCompatActivity {
             public void onClick(View view) {
                 Intent fa_mypage = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(fa_mypage);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -94,6 +98,7 @@ public class favorite extends AppCompatActivity {
             public void onClick(View view) {
                 Intent fa_menu = new Intent(getApplicationContext(),menu.class);
                 startActivity(fa_menu);
+                overridePendingTransition(0,0);
             }
         });
         // 하단바 연결

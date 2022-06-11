@@ -72,6 +72,7 @@ public class cashhistory extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ca_qrcode = new Intent(getApplicationContext(),CreateQR.class);
                 startActivity(ca_qrcode);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -81,6 +82,7 @@ public class cashhistory extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ca_history = new Intent(getApplicationContext(),cashhistory.class);
                 startActivity(ca_history);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -90,6 +92,7 @@ public class cashhistory extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ca_location = new Intent(getApplicationContext(),location.class);
                 startActivity(ca_location);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -100,6 +103,7 @@ public class cashhistory extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ca_menu = new Intent(getApplicationContext(),menu.class);
                 startActivity(ca_menu);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -109,6 +113,7 @@ public class cashhistory extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ca_mypage = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(ca_mypage);
+                overridePendingTransition(0,0);
             }
         });
         //------- 하단바 연결 --------

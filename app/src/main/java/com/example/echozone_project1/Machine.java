@@ -21,6 +21,7 @@ public class Machine extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ma_machine = new Intent(getApplicationContext(), Machine.class);
                 startActivity(ma_machine);
+                overridePendingTransition(0,0);
             }
         });
         Button ma_calendar = (Button) findViewById(R.id.ma_calendar);
@@ -29,6 +30,7 @@ public class Machine extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ma_calendar = new Intent(getApplicationContext(),date_reservation.class);
                 startActivity(ma_calendar);
+                overridePendingTransition(0,0);
             }
         });
         Button ma_store = (Button) findViewById(R.id.ma_store);
@@ -37,6 +39,7 @@ public class Machine extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ma_store = new Intent(getApplicationContext(),info_cap.class);
                 startActivity(ma_store);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -46,6 +49,7 @@ public class Machine extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ma_menu = new Intent(getApplicationContext(),storemenu.class);
                 startActivity(ma_menu);
+                overridePendingTransition(0,0);
             }
         });
             }

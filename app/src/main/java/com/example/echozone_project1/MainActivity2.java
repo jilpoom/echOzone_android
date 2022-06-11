@@ -22,6 +22,7 @@ public class MainActivity2 extends AppCompatActivity {
         public void onClick(View view) {
             Intent intent = new Intent(MainActivity2.this, CreateQR.class);
             startActivity(intent);
+            overridePendingTransition(0,0);
         }
     });
 

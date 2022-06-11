@@ -32,6 +32,7 @@ public class date_reservation extends AppCompatActivity {
             public void onClick(View view) {
                 Intent da_back = new Intent(getApplicationContext(),storemenu.class);
                 startActivity(da_back);
+                overridePendingTransition(0,0);
             }
         });
 

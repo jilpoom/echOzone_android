@@ -23,6 +23,7 @@ public class menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent logout = new Intent(getApplicationContext(),login.class);
                 startActivity(logout);
+                overridePendingTransition(0,0);
             }
         });
         //즐겨찾기
@@ -32,6 +33,7 @@ public class menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent imageView23= new Intent(getApplicationContext(),favorite.class);
                 startActivity(imageView23);
+                overridePendingTransition(0,0);
             }
         });
         //적립내역
@@ -41,6 +43,7 @@ public class menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent imageView24= new Intent(getApplicationContext(),cashhistory.class);
                 startActivity(imageView24);
+                overridePendingTransition(0,0);
             }
         });
         //위치
@@ -50,6 +53,7 @@ public class menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent imageView25 = new Intent(getApplicationContext(),location.class);
                 startActivity(imageView25);
+                overridePendingTransition(0,0);
             }
         });
         //메인으로
@@ -59,6 +63,7 @@ public class menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent imageView18 = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(imageView18);
+                overridePendingTransition(0,0);
             }
         });
         //큐알사진
@@ -68,6 +73,7 @@ public class menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent btn_qr = new Intent(getApplicationContext(), CreateQR.class);
                 startActivity(btn_qr);
+                overridePendingTransition(0,0);
             }
         });
     }
