@@ -377,10 +377,12 @@
 
     <ImageView
         android:id="@+id/ac_menu"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:srcCompat="@drawable/home"
-        tools:layout_editor_absoluteX="328dp"
-        tools:layout_editor_absoluteY="588dp" />
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="326dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView22"
+        app:layout_constraintTop_toTopOf="@+id/imageView22"
+        app:srcCompat="@drawable/home" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
