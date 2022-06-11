@@ -278,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
         ac_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ac_menu = new Intent(getApplicationContext(), menu.class);
+                Intent ac_menu = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(ac_menu);
                 overridePendingTransition(0,0);
             }
@@ -288,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
         ac_mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ac_mypage = new Intent(getApplicationContext(), MainActivity.class);
+                Intent ac_mypage = new Intent(getApplicationContext(), favorite.class);
                 startActivity(ac_mypage);
                 overridePendingTransition(0,0);
             }
