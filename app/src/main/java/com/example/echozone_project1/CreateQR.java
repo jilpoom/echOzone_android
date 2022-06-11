@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -17,10 +18,15 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 public class CreateQR extends AppCompatActivity {
     private ImageView iv;
     private String text;
+    private TextView name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_qr);
+
+        name = findViewById(R.id.name);
+        name.setText(LoginCheck.info.getName());
 
         // X누르면 MainActivity2로 이동
         Button qr_cancle = (Button) findViewById(R.id.qr_cancle);

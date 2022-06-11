@@ -1,6 +1,7 @@
 package com.example.echozone_project1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -38,6 +41,9 @@ public class login extends AppCompatActivity {
     private CheckBox ck_autoLogin;
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
+    private TextView tv_join;
+    private SwitchCompat sw_type;
+    private int cnt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +55,34 @@ public class login extends AppCompatActivity {
         btn_login = findViewById(R.id.btn_login);
         ck_saveId = findViewById(R.id.ck_saveId);
         ck_autoLogin = findViewById(R.id.ck_autoLogin);
+        tv_join = findViewById(R.id.tv_join);
+        sw_type = findViewById(R.id.sw_type);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendRequest();
+            }
+        });
+
+        tv_join.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), join.class);
+                startActivity(intent);
+                overridePendingTransition(0,0);
+            }
+        });
+
+        sw_type.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cnt++;
+                if(cnt % 2 == 0) {
+                    sw_type.setText("가맹  ");
+                } else {
+                    sw_type.setText("일반  ");
+                }
             }
         });
     }
@@ -89,8 +118,14 @@ public class login extends AppCompatActivity {
                         LoginCheck.info = new userVO(user_id, user_pw, user_type, user_phone, user_address,
                                                         user_nm, user_joindate);
                         Toast.makeText(getApplicationContext(), user_nm + "님 환영합니다.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
+
+                        if (user_type.equals("개인")) {
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        }else {
+                            Intent intent = new Intent(getApplicationContext(), info_cap.class);
+                            startActivity(intent);
+                        }
 
                     } catch (JSONException e) {
                         e.printStackTrace();
