@@ -274,11 +274,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button ac_menu = (Button) findViewById(R.id.ac_menu);
-        ac_menu.setOnClickListener(new View.OnClickListener() {
+        TextView tv_recently = (TextView) findViewById(R.id.tv_recently);
+        tv_recently.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ac_menu = new Intent(getApplicationContext(), MainActivity.class);
+                Intent ac_menu = new Intent(getApplicationContext(), cashhistory.class);
                 startActivity(ac_menu);
                 overridePendingTransition(0,0);
             }
