@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
@@ -27,7 +28,9 @@ import org.w3c.dom.Text;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class info_cap extends AppCompatActivity {
 
@@ -46,7 +49,12 @@ public class info_cap extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_cap);
 
-        Button store1= (Button) findViewById(R.id.sc_machine1);
+        textView25 = findViewById(R.id.tv_text);
+        info = findViewById(R.id.info80);
+
+        sendRequest();
+
+        Button store1 = (Button) findViewById(R.id.sc_machine1);
         store1.setOnClickListener(new View.OnClickListener() {
                                       @Override
                                       public void onClick(View view) {
@@ -83,72 +91,8 @@ public class info_cap extends AppCompatActivity {
                 overridePendingTransition(0,0);
             }
         });
-        ImageView info = findViewById(R.id.info80);
-        textView25 = findViewById(R.id.tv_text);
 
-        sendRequest();
 
-        int tv_text = Integer.parseInt((String) textView25.getText());
-                        if(tv_text>=95){
-                            info.setImageResource(R.drawable.a95);
-                        }
-                        else if (tv_text>=90){
-                            info.setImageResource(R.drawable.a90);
-        }
-                        else if (tv_text>=85){
-                            info.setImageResource(R.drawable.a85);
-                        }
-                        else if (tv_text>=80){
-                            info.setImageResource(R.drawable.a80);
-                        }
-                        else if (tv_text>=75){
-                            info.setImageResource(R.drawable.a75);
-                        }
-                        else if (tv_text>=70){
-                            info.setImageResource(R.drawable.a70);
-                        }
-                        else if (tv_text>=65){
-                            info.setImageResource(R.drawable.a65);
-                        }
-                        else if (tv_text>=60){
-                            info.setImageResource(R.drawable.a60);
-                        }
-                        else if (tv_text>=55){
-                            info.setImageResource(R.drawable.a55);
-                        }
-                        else if (tv_text>=50){
-                            info.setImageResource(R.drawable.a50);
-                        }
-                        else if (tv_text>=45){
-                            info.setImageResource(R.drawable.a45);
-                        }
-                        else if (tv_text>=40){
-                            info.setImageResource(R.drawable.a40);
-                        }
-                        else if (tv_text>=35){
-                            info.setImageResource(R.drawable.a35);
-                        }
-                        else if (tv_text>=30){
-                            info.setImageResource(R.drawable.a30);
-                        }
-                        else if (tv_text>=25){
-                            info.setImageResource(R.drawable.a25);
-                        }
-                        else if (tv_text>=20){
-                            info.setImageResource(R.drawable.a20);
-                        }
-                        else if (tv_text>=15){
-                            info.setImageResource(R.drawable.a15);
-                        }
-                        else if (tv_text>=10){
-                            info.setImageResource(R.drawable.a10);
-                        }
-                        else if (tv_text>=5){
-                            info.setImageResource(R.drawable.a5);
-                        }
-                        else{
-                            info.setImageResource(R.drawable.a0);
-                        }
     }
 
     /*     서버 연결 부분 시작     */
@@ -170,7 +114,71 @@ public class info_cap extends AppCompatActivity {
                         ObjectMapper objectMapper = new ObjectMapper();
                         String jsonArray = response;
                         productInfo = objectMapper.readValue(jsonArray, new TypeReference<List<productVO>>(){});
-                        textView25.setText(productInfo.get(0).getCurrent_cap());
+
+                        int current_cap = productInfo.get(0).getCurrent_cap();
+
+                        textView25.setText(productInfo.get(0).getCurrent_cap() + "");
+
+                        if(current_cap>=95){
+                            info.setImageResource(R.drawable.a95);
+                        }
+                        else if (current_cap>=90){
+                            info.setImageResource(R.drawable.a90);
+                        }
+                        else if (current_cap>=85){
+                            info.setImageResource(R.drawable.a85);
+                        }
+                        else if (current_cap>=80){
+                            info.setImageResource(R.drawable.a80);
+                        }
+                        else if (current_cap>=75){
+                            info.setImageResource(R.drawable.a75);
+                        }
+                        else if (current_cap>=70){
+                            info.setImageResource(R.drawable.a70);
+                        }
+                        else if (current_cap>=65){
+                            info.setImageResource(R.drawable.a65);
+                        }
+                        else if (current_cap>=60){
+                            info.setImageResource(R.drawable.a60);
+                        }
+                        else if (current_cap>=55){
+                            info.setImageResource(R.drawable.a55);
+                        }
+                        else if (current_cap>=50){
+                            info.setImageResource(R.drawable.a50);
+                        }
+                        else if (current_cap>=45){
+                            info.setImageResource(R.drawable.a45);
+                        }
+                        else if (current_cap>=40){
+                            info.setImageResource(R.drawable.a40);
+                        }
+                        else if (current_cap>=35){
+                            info.setImageResource(R.drawable.a35);
+                        }
+                        else if (current_cap>=30){
+                            info.setImageResource(R.drawable.a30);
+                        }
+                        else if (current_cap>=25){
+                            info.setImageResource(R.drawable.a25);
+                        }
+                        else if (current_cap>=20){
+                            info.setImageResource(R.drawable.a20);
+                        }
+                        else if (current_cap>=15){
+                            info.setImageResource(R.drawable.a15);
+                        }
+                        else if (current_cap>=10){
+                            info.setImageResource(R.drawable.a10);
+                        }
+                        else if (current_cap>=5){
+                            info.setImageResource(R.drawable.a5);
+                        }
+                        else{
+                            info.setImageResource(R.drawable.a0);
+                        }
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -199,6 +207,17 @@ public class info_cap extends AppCompatActivity {
                     // log error
                     return Response.error(new ParseError(e));
                 }
+            }
+            // 보낼 데이터를 저장하는 곳
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                // 서버에 보낼 값
+                Map<String, String> params = new HashMap<>();
+                String id = LoginCheck2.info.getShop_id();
+
+                params.put("shop_id", id);
+
+                return params;
             }
         };
         requestQueue.add(stringRequest);

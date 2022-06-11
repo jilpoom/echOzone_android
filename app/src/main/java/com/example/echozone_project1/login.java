@@ -43,7 +43,7 @@ public class login extends AppCompatActivity {
     private StringRequest stringRequest;
     private TextView tv_join;
     private SwitchCompat sw_type;
-    private int cnt;
+    private int cnt = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,11 @@ public class login extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendRequest();
+                if(sw_type.isChecked()) {
+                    sendRequest();
+                }else {
+                    sendRequest2();
+                }
             }
         });
 
@@ -119,20 +123,16 @@ public class login extends AppCompatActivity {
                                                         user_nm, user_joindate);
                         Toast.makeText(getApplicationContext(), user_nm + "님 환영합니다.", Toast.LENGTH_SHORT).show();
 
-                        if (user_type.equals("개인")) {
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
-                        }else {
-                            Intent intent = new Intent(getApplicationContext(), info_cap.class);
-                            startActivity(intent);
-                        }
 
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "아이디/비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     // 로그인 실패
-                    Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "아이디/비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -140,6 +140,7 @@ public class login extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
+                Toast.makeText(getApplicationContext(), "아이디/비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
@@ -172,4 +173,87 @@ public class login extends AppCompatActivity {
         };
         requestQueue.add(stringRequest);
     }
+
+    public void sendRequest2() {
+        // RequestQueue 객체 생성
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+        // 서버에 요청할 주소
+        String url = "http://220.80.203.109:8081/web/andLoginSelectShop.do";
+
+        // 요청 시 필요한 문자열 객체
+        stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (response.length() > 0) {
+                    Log.v("checkcheck", "메롱");
+                    // 로그인 성공
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        String shop_id = jsonObject.getString("shop_id");
+                        String shop_pw = jsonObject.getString("shop_pw");
+                        int product_seq = Integer.parseInt(jsonObject.getString("product_seq"));
+                        String inst_dt = jsonObject.getString("inst_dt");
+                        String shop_nm = jsonObject.getString("shop_nm");
+                        String shop_address = jsonObject.getString("shop_address");
+                        Log.v("shopInfo", response.toString());
+
+                        // 로그인 성공 시 id, pw, user_seq, type, phone, address, name, joinDate 데이터를
+                        // MainActivity로 전달해서 정보 노출시키기
+                        // MemberVO 사용
+                        LoginCheck2.info = new shopVO(shop_id, shop_pw, product_seq, inst_dt, shop_nm,
+                                shop_address);
+                        Toast.makeText(getApplicationContext(), shop_nm + "님 환영합니다.", Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(getApplicationContext(), info_cap.class);
+                            startActivity(intent);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "아이디/비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    // 로그인 실패
+                    Toast.makeText(getApplicationContext(), "아이디/비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            // 서버와의 연동 에러시 출력
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                Toast.makeText(getApplicationContext(), "아이디/비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    String utf8String = new String(response.data, "UTF-8");
+                    return Response.success(utf8String, HttpHeaderParser.parseCacheHeaders(response));
+                } catch (UnsupportedEncodingException e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                } catch (Exception e){
+                    // log error
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            // 보낼 데이터를 저장하는 곳
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                // 서버에 보낼 값
+                Map<String, String> params = new HashMap<>();
+                String id = user_id.getText().toString().trim();
+                String pw = user_pw.getText().toString().trim();
+
+                params.put("user_id", id);
+                params.put("user_pw", pw);
+
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
+    }
+
 }

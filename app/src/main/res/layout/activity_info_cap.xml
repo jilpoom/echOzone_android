@@ -212,14 +212,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/a80" />
 
-    <ImageView
-        android:id="@+id/info100"
-        android:layout_width="302dp"
-        android:layout_height="331dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/a100" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
