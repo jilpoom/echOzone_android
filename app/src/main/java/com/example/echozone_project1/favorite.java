@@ -86,7 +86,7 @@ public class favorite extends AppCompatActivity {
         fa_mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent fa_mypage = new Intent(getApplicationContext(),MainActivity.class);
+                Intent fa_mypage = new Intent(getApplicationContext(),favorite.class);
                 startActivity(fa_mypage);
                 overridePendingTransition(0,0);
             }
@@ -96,7 +96,7 @@ public class favorite extends AppCompatActivity {
         fa_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent fa_menu = new Intent(getApplicationContext(),menu.class);
+                Intent fa_menu = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(fa_menu);
                 overridePendingTransition(0,0);
             }
