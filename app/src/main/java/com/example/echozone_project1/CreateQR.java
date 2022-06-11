@@ -29,13 +29,16 @@ public class CreateQR extends AppCompatActivity {
         name.setText(LoginCheck.info.getName());
 
         // X누르면 MainActivity2로 이동
-        Button qr_cancle = (Button) findViewById(R.id.qr_cancle);
+        Button qr_cancle =findViewById(R.id.qr_cancle);
         qr_cancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent qr_cancle = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(qr_cancle);
-                overridePendingTransition(0,0);
+                Intent qr_cancle = new Intent();
+                qr_cancle.putExtra("name","suzin");
+                setResult(RESULT_OK, qr_cancle);
+                finish();
+//                startActivity(qr_cancle);
+//                overridePendingTransition(0,0);
             }
         });
 

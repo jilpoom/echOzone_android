@@ -34,7 +34,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class favorite extends AppCompatActivity {
+public class favorite<requestCode> extends AppCompatActivity {
+public static final int REQUEST_CODE = 101;
 
     private TextView tv_first_nm, tv_second_nm, tv_third_nm;
     private TextView tv_first_cnt, tv_second_cnt, tv_third_cnt;
@@ -46,6 +47,17 @@ public class favorite extends AppCompatActivity {
     private List<mileageVO> mileageList = new ArrayList<mileageVO>();
     private List<mileageVO> empty = new ArrayList<mileageVO>();
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 101){
+            if(data != null){
+                String name = data.getStringExtra("name");
+                if(name != null){
+                }
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +68,12 @@ public class favorite extends AppCompatActivity {
         fa_qrcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent fa_qrcode = new Intent(getApplicationContext(),CreateQR.class);
-                startActivity(fa_qrcode);
-                overridePendingTransition(0,0);
+                Intent fa_code = new Intent(getApplicationContext(),CreateQR.class);
+                startActivityForResult(fa_code,REQUEST_CODE);
+
             }
         });
+
 
         Button fa_history = (Button) findViewById(R.id.fa_history);
         fa_history.setOnClickListener(new View.OnClickListener() {

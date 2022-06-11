@@ -261,7 +261,7 @@
             android:id="@+id/user_mileage"
             android:layout_width="97dp"
             android:layout_height="43dp"
-            android:text="9,000"
+            android:text="0"
             android:textAllCaps="false"
             android:textColor="@color/blue"
             android:textSize="34sp"
