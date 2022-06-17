@@ -1,2 +1,2 @@
-# echOzone_android
-Plaroid-1안드로이드 앱
+# echOzone_project
+part 1. plaroid-1 / android
